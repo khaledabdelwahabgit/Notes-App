@@ -3,14 +3,17 @@ import 'package:notes_app/widgets/constants.dart';
 import 'package:notes_app/widgets/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField({super.key, required this.hint, this.maxline = 1});
+  final String hint;
+  final int maxline;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: maxline,
       cursorColor: kPrimarycolor,
       decoration: InputDecoration(
-        hintText: 'Title',
+        hintText: hint,
         border: bulidborder(),
         enabledBorder: bulidborder(),
         focusedBorder: bulidborder(kPrimarycolor),
